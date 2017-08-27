@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "Wow Curve";
+}
+
+<div class="container-fluid mycontainter">
+    <form class="form-inline myform">
+        <div class="form-group charrealm">
+            <select class="form-control" name="selectRegion">
+                <option value="EU">Europe</option>
+            </select>
+        </div>
+        <div class="form-group">
+                @{
+                    string[] realmList = new string[]
+                    {
+                        "Aerie Peak",
+                        "Agamaggan",
+                        "Aggramar",
+                        "Ahn'Qiraj",
+                        "Al'Akir",
+                        "Alonsus",
+                        "Anachronos",
+                        "Arathor",
+                        "Argent Dawn",
+                        "Aszune",
+                        "Auchindoun",
+                        "Azjol-Nerub",
+                        "Azuremyst",
+                        "Balnazzar",
+                        "Blade's Edge",
+                        "Bladefist",
+                        "Bloodfeather",
+                        "Bloodhoof",
+                        "Bloodscalp",
+                        "Boulderfist",
+                        "Bronze Dragonflight",
+                        "Bronzebeard",
+                        "Burning Blade",
+                        "Burning Legion",
+                        "Burning Steppes",
+                        "Chamber of Aspects",
+                        "Chromaggus",
+                        "Crushridge",
+                        "Daggerspine",
+                        "Darkmoon Faire",
+                        "Darksorrow",
+                        "Darkspear",
+                        "Deathwing",
+                        "Defias Brotherhood",
+                        "Dentarg",
+                        "Doomhammer",
+                        "Draenor",
+                        "Dragonblight",
+                        "Dragonmaw",
+                        "Drak'thul",
+                        "Dunemaul",
+                        "Earthen Ring",
+                        "Emerald Dream",
+                        "Emeriss",
+                        "Eonar",
+                        "Executus",
+                        "Frostmane",
+                        "Frostwhisper",
+                        "Genjuros",
+                        "Ghostlands",
+                        "Grim Batol",
+                        "Hakkar",
+                        "Haomarush",
+                        "Hellfire",
+                        "Hellscream",
+                        "Jaedenar",
+                        "Karazhan",
+                        "Kazzak",
+                        "Khadgar",
+                        "Kilrogg",
+                        "Kor'gall",
+                        "Kul Tiras",
+                        "Laughing Skull",
+                        "Lightbringer",
+                        "Lightning's Blade",
+                        "Magtheridon",
+                        "Mazrigos",
+                        "Moonglade",
+                        "Nagrand",
+                        "Neptulon",
+                        "Nordrassil",
+                        "Outland",
+                        "Quel'Thalas",
+                        "Ragnaros",
+                        "Ravencrest",
+                        "Ravenholdt",
+                        "Runetotem",
+                        "Saurfang",
+                        "Scarshield Legion",
+                        "Shadow Moon",
+                        "Shadowsong",
+                        "Shattered Halls",
+                        "Shattered Hand",
+                        "Silvermoon",
+                        "Skullcrusher",
+                        "Spinebreaker",
+                        "Sporeggar",
+                        "Steamwheedle Cartel",
+                        "Stonemaul",
+                        "Stormrage",
+                        "Stormreaver",
+                        "Stormscale",
+                        "Sunstrider",
+                        "Sylvanas",
+                        "Talnivarr",
+                        "Tarren Mill",
+                        "Terenas",
+                        "Terokkar",
+                        "The Maelstrom",
+                        "The Sha'tar",
+                        "The Venture Co",
+                        "Thunderhorn",
+                        "Trollbane",
+                        "Turalyon",
+                        "Twilight's Hammer",
+                        "Twisting Nether",
+                        "Vashj",
+                        "Vek'nilash",
+                        "Wildhammer",
+                        "Xavius",
+                        "Zenedar"
+                    };
+
+                    List<SelectListItem> selectReamList = new List<SelectListItem>();
+                    foreach (string realm in realmList)
+                    {
+                        selectReamList.Add(new SelectListItem
+                        {
+                            Text = realm,
+                            Value = realm
+                        });
+                    }
+                    @Html.DropDownList("Select Realm", new SelectList(selectReamList, "Value", "Text"), new { @class = "form-control", @name="selectRealmListName" })
+                }  
+        </div>
+        <div class="form-group charname">
+            <input id="enterCharactername" name="enterCharactername" type="text" placeholder="Character name" class="form-control">
+        </div>
+        <div class="form-group">
+            <a id="zoeken" name="zoeken" class="btn btn-default">Search</a>
+        </div>
+    </form>
+    <div id="loading" class="statusDiv">
+        <h2>Loading character...</h2>
+    </div>
+
+</div>
